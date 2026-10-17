@@ -1,0 +1,30 @@
+:root {
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+  color-scheme: light dark;
+}
+
+body {
+  margin: 0;
+}
+
+nav {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #8884;
+}
+
+nav a {
+  color: inherit;
+  text-decoration: none;
+}
+
+nav a[aria-current='page'] {
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.home {
+  padding: 2rem;
+}

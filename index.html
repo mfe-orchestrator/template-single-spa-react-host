@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>single-spa root config</title>
+    <!-- vite.config.ts injects the import map of the shared packages at the top of <head>. -->
+  </head>
+  <body>
+    <!-- Rendered by the root config itself (src/Shell.tsx). -->
+    <header id="shell"></header>
+    <!-- Where the applications mount: every registration points its domElementGetter here. -->
+    <main id="applications"></main>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

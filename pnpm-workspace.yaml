@@ -1,0 +1,5 @@
+# pnpm refuses packages younger than its minimum release age; the orchestrator
+# client 0.3.0 is recent enough to need an explicit exception. Drop the entry once
+# the release is older than that window.
+minimumReleaseAgeExclude:
+  - '@mfe-orchestrator-hub/client@0.3.0'
