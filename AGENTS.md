@@ -19,6 +19,9 @@ There is no linter and no test suite. `pnpm build` is the check. It needs `VITE_
 
 - **`configure()` runs first.** It is the first statement of `src/main.tsx`, synchronous, before
   `registerApplications()` and `start()`.
+- `window.appInsights` is a contract with the applications: `src/telemetry.ts` sets it only when the
+  environment's global variables carry `APPLICATIONINSIGHTS_CONNECTION_STRING`. Keep the SDK behind
+  its dynamic `import()`: a static import puts it in every bundle, used or not.
 - **Application URLs come only from `remoteUrl('<slug>')`.** Never hardcode a URL, never parse or
   rewrite the one returned, and never strip its version segment. Resolve it first, then
   `import(/* @vite-ignore */ url)` on its own line: Vite's preload wrapper breaks
@@ -37,6 +40,7 @@ There is no linter and no test suite. `pnpm build` is the check. It needs `VITE_
 ## Layout
 
 - `src/main.tsx`: configure, render `Shell`, register, start.
+- `src/telemetry.ts`: Application Insights, started from `src/main.tsx` when the environment asks.
 - `src/applications.ts`: `registerApplication()` calls. The example is `example-remote` on
   `/example`, and `/` mounts nothing, so navigating there unmounts it.
 - `src/Shell.tsx`: navigation (with `navigateToUrl`) and the home page.
